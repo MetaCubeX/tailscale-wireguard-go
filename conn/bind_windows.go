@@ -17,7 +17,7 @@ import (
 
 	"golang.org/x/sys/windows"
 
-	"github.com/tailscale/wireguard-go/conn/winrio"
+	"github.com/metacubex/tailscale-wireguard-go/conn/winrio"
 )
 
 const (

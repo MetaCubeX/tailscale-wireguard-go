@@ -9,12 +9,12 @@ import (
 	"container/list"
 	"errors"
 	"net/netip"
-	"slices"
 	"sync"
 	"sync/atomic"
 	"time"
 
-	"github.com/tailscale/wireguard-go/conn"
+	"github.com/metacubex/tailscale-wireguard-go/conn"
+	"golang.org/x/exp/slices"
 )
 
 type Peer struct {

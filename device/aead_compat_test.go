@@ -219,13 +219,13 @@ func benchmarkAEAD(b *testing.B, open bool) {
 			b.SetBytes(int64(ptSize))
 			b.ResetTimer()
 			if open {
-				for range b.N {
+				for i := 0; i < b.N; i++ {
 					if _, err := aead.Open(ptBuf[:0], nonce[:], ct, nil); err != nil {
 						b.Fatal(err)
 					}
 				}
 			} else {
-				for range b.N {
+				for i := 0; i < b.N; i++ {
 					_ = aead.Seal(ctBuf[:0], nonce[:], plaintext, nil)
 				}
 			}
@@ -253,12 +253,12 @@ func TestAEAD_Concurrent(t *testing.T) {
 			var wg sync.WaitGroup
 			wg.Add(goroutines)
 			errs := make(chan error, goroutines)
-			for g := range goroutines {
+			for g := 0; g < goroutines; g++ {
 				go func(id int) {
 					defer wg.Done()
 					var nonce [12]byte
 					binary.BigEndian.PutUint64(nonce[4:], uint64(id))
-					for i := range iters {
+					for i := 0; i < iters; i++ {
 						binary.BigEndian.PutUint32(nonce[:4], uint32(i))
 						ct := aead.Seal(nil, nonce[:], plaintext, aad)
 						pt, err := aead.Open(nil, nonce[:], ct, aad)

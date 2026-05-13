@@ -20,7 +20,10 @@ func TestWaitPool(t *testing.T) {
 	n := runtime.NumCPU()
 	// The original test of 100,000 trials resulted in very long times on small hosts.
 	// Scaling it down to 100*n^2 results a 1.5s run on a 4-core VM.
-	startTrials := int32(min(100*n*n, 100000))
+	startTrials := int32(100 * n * n)
+	if startTrials > 100000 {
+		startTrials = 100000
+	}
 	if raceEnabled {
 		// This test can be very slow with -race.
 		startTrials /= 10
