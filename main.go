@@ -14,10 +14,10 @@ import (
 	"runtime"
 	"strconv"
 
-	"github.com/tailscale/wireguard-go/conn"
-	"github.com/tailscale/wireguard-go/device"
-	"github.com/tailscale/wireguard-go/ipc"
-	"github.com/tailscale/wireguard-go/tun"
+	"github.com/metacubex/tailscale-wireguard-go/conn"
+	"github.com/metacubex/tailscale-wireguard-go/device"
+	"github.com/metacubex/tailscale-wireguard-go/ipc"
+	"github.com/metacubex/tailscale-wireguard-go/tun"
 	"golang.org/x/sys/unix"
 )
 
