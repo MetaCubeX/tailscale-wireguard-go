@@ -243,8 +243,8 @@ func (peer *Peer) Start() {
 
 	peer.timersStart()
 
-	device.flushInboundQueue(peer.queue.inbound.c)
-	device.flushOutboundQueue(peer.queue.outbound.c)
+	device.flushInboundQueue(peer.queue.inbound)
+	device.flushOutboundQueue(peer.queue.outbound)
 
 	// Use the device batch size, not the bind batch size, as the device size is
 	// the size of the batch pools.
