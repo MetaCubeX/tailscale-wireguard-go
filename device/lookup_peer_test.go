@@ -8,7 +8,7 @@ package device
 import (
 	"testing"
 
-	"github.com/tailscale/wireguard-go/conn"
+	"github.com/metacubex/tailscale-wireguard-go/conn"
 )
 
 func TestLookupPeerPinsEndpoint(t *testing.T) {

@@ -1,4 +1,4 @@
-module github.com/tailscale/wireguard-go
+module github.com/metacubex/tailscale-wireguard-go
 
 go 1.25.0
 

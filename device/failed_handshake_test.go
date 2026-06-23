@@ -11,8 +11,8 @@ import (
 	"testing/synctest"
 	"time"
 
-	"github.com/tailscale/wireguard-go/conn/bindtest"
-	"github.com/tailscale/wireguard-go/tun/tuntest"
+	"github.com/metacubex/tailscale-wireguard-go/conn/bindtest"
+	"github.com/metacubex/tailscale-wireguard-go/tun/tuntest"
 )
 
 func newSynctestDevice(tb testing.TB) *Device {
