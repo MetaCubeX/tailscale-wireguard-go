@@ -14,7 +14,7 @@ import (
 	"slices"
 	"unsafe"
 
-	"github.com/tailscale/wireguard-go/conn"
+	"github.com/metacubex/tailscale-wireguard-go/conn"
 	"golang.org/x/sys/unix"
 )
 
