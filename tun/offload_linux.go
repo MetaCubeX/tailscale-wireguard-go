@@ -11,10 +11,10 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"slices"
 	"unsafe"
 
 	"github.com/metacubex/tailscale-wireguard-go/conn"
+	"golang.org/x/exp/slices"
 	"golang.org/x/sys/unix"
 )
 

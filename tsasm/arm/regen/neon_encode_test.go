@@ -1,3 +1,5 @@
+//go:build ignore
+
 // SPDX-License-Identifier: BSD-3-Clause
 
 package regen

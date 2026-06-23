@@ -159,7 +159,7 @@ func TestExpiredSessionRaceWithRefresh(t *testing.T) {
 	if runtime.GOMAXPROCS(0) < 2 {
 		t.Skip("requires GOMAXPROCS >= 2 to interleave expiredSession and refresh")
 	}
-	for i := range 5_000 {
+	for i := 0; i < 5_000; i++ {
 		dev := &Device{log: NewLogger(LogLevelError, "")}
 		peer := &Peer{device: dev}
 		peer.handshake.remoteStatic = NoisePublicKey{5}
@@ -188,17 +188,20 @@ func TestExpiredSessionRaceWithRefresh(t *testing.T) {
 		start.Add(1)
 		var done sync.WaitGroup
 
-		done.Go(func() {
+		done.Add(2)
+		go func() {
+			defer done.Done()
 			start.Wait()
 			peer.sessionState.Lock()
 			peer.sessionState.sessionExpires = future
 			peer.noteSessionStateLocked(PeerSessionEstablished)
 			peer.sessionState.Unlock()
-		})
-		done.Go(func() {
+		}()
+		go func() {
+			defer done.Done()
 			start.Wait()
 			expiredSession(peer)
-		})
+		}()
 
 		start.Done()
 		done.Wait()
