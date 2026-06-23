@@ -10,9 +10,9 @@ import (
 	"testing"
 	"unsafe"
 
-	"gvisor.dev/gvisor/pkg/tcpip"
-	gvisorChecksum "gvisor.dev/gvisor/pkg/tcpip/checksum"
-	"gvisor.dev/gvisor/pkg/tcpip/header"
+	"github.com/metacubex/gvisor/pkg/tcpip"
+	gvisorChecksum "github.com/metacubex/gvisor/pkg/tcpip/checksum"
+	"github.com/metacubex/gvisor/pkg/tcpip/header"
 )
 
 type archChecksumDetails struct {

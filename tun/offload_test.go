@@ -4,9 +4,9 @@ import (
 	"net/netip"
 	"testing"
 
+	"github.com/metacubex/gvisor/pkg/tcpip"
+	"github.com/metacubex/gvisor/pkg/tcpip/header"
 	"github.com/metacubex/tailscale-wireguard-go/conn"
-	"gvisor.dev/gvisor/pkg/tcpip"
-	"gvisor.dev/gvisor/pkg/tcpip/header"
 )
 
 func Fuzz_GSOSplit(f *testing.F) {

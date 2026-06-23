@@ -10,10 +10,10 @@ import (
 	"slices"
 	"testing"
 
+	"github.com/metacubex/gvisor/pkg/tcpip"
+	"github.com/metacubex/gvisor/pkg/tcpip/header"
 	"github.com/metacubex/tailscale-wireguard-go/conn"
 	"golang.org/x/sys/unix"
-	"gvisor.dev/gvisor/pkg/tcpip"
-	"gvisor.dev/gvisor/pkg/tcpip/header"
 )
 
 const (
